@@ -1,0 +1,22 @@
+server:
+  port: 9093
+
+spring:
+  application:
+    name: contract-coa-service
+  devtools:
+    livereload:
+      enabled: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://43.200.145.199:5432/scm?allowMultiQueries=true
+    characterEncoding: UTF-8
+    username: admin
+    password: 1234
+    show-sql: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+mybatis:
+  config-location: classpath:config/myBatis.xml
