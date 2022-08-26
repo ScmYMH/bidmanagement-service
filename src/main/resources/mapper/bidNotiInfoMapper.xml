@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scm.bidmanagement.mobile.repository.BidNotiInfoMapper">
+    <select id="getBidNotiInfo" resultType="BidNotiInfoDto">
+        SELECT A.BLTN_CONTENT_NO ,
+        A.BID_PJT_TCD ,
+        A.BLTN_CONTENT ,
+        A.SRCH_CNT ,
+        A.DEL_YN ,
+        A.SUBJ,
+        A.INS_PERSON_ID ,
+        (SELECT X.USER_NM
+        FROM   TCOM.TB_USER_INFO X
+        WHERE  X.DEL_YN = 'N'
+        AND    X.USER_ID = A.INS_PERSON_ID) AS INS_PERSON_NM ,
+        A.INS_DATE ,
+        A.INS_TIME ,
+        A.UPD_PERSON_ID ,
+        A.UPD_DATE ,
+        A.UPD_TIME ,
+        A.LSP_GRP_CD,
+        (select L.LSP_GRP_NM
+        from TEBS.tb_lsp_pool_info L
+        WHERE  L.DEL_YN = 'N'
+        AND L.lsp_grp_cd =  A.lsp_grp_cd
+        and L.lsp_grp_cd is distinct from A.lsp_grp_cd) as LSP_GRP_NM,
+        COALESCE(A.DW_MAIL_SEND_F , 'N') DW_MAIL_SEND_F,
+        A.LSP_GRP_CD
+        FROM   TEBS.TB_BID_NOTI_INFO A
+        WHERE  A.DEL_YN = 'N'
+        AND    A.INS_DATE <![CDATA[>=]]> #{ins_start_date}
+        AND    A.INS_DATE <![CDATA[<=]]> #{ins_end_date}
+        AND    A.SUBJ LIKE '%'|| REPLACE(REPLACE(#{subj}  , '%' , CHR(1)||'%') , '_' , CHR(1)||'_') || '%' ESCAPE CHR(1)
+    </select>
+</mapper>
