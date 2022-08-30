@@ -17,7 +17,9 @@ public class BidNotiInfoDto {
     private String ins_start_date;
     private String ins_end_date;
     private String ins_person_nm;
+    private String del_yn;
+    private String bltn_content;
+
 
 
 }
-

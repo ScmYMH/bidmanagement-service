@@ -8,5 +8,6 @@
     </typeAliases>
     <mappers>
         <mapper resource="mapper/bidNotiInfoMapper.xml"></mapper>
+        <mapper resource="mapper/bidInsertMapper.xml"></mapper>
     </mappers>
 </configuration>
