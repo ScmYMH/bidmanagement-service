@@ -19,6 +19,10 @@ public class BidNotiInfoDto {
     private String ins_person_nm;
     private String del_yn;
     private String bltn_content;
+    private Integer bltn_content_no;
+    private String upd_person_id;
+    private String upd_date;
+    private String upd_time;
 
 
 

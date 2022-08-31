@@ -1,6 +1,5 @@
 package com.scm.bidmanagement.mobile.controller;
 
-
 import com.scm.bidmanagement.mobile.model.BidNotiInfoDto;
 import com.scm.bidmanagement.mobile.service.BidNotiInfoServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +25,12 @@ public class BidNotiInfoController {
     public void postBidInsertInfo(@RequestBody BidNotiInfoDto bidNotiInfoDto) {
         bidNotiInfoService.postBidInsertInfo(bidNotiInfoDto);
         return;
+    }
+
+    @PutMapping("/{bltn_content_no}")
+    public Integer deleteBidNotiInfo(@PathVariable Integer bltn_content_no) {
+        return bidNotiInfoService.delBidInsertInfo(bltn_content_no);
+
     }
 
 }

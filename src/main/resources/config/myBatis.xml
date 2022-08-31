@@ -9,5 +9,6 @@
     <mappers>
         <mapper resource="mapper/bidNotiInfoMapper.xml"></mapper>
         <mapper resource="mapper/bidInsertMapper.xml"></mapper>
+        <mapper resource="mapper/bidDeleteMapper.xml"></mapper>
     </mappers>
 </configuration>

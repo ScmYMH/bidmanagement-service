@@ -9,4 +9,5 @@ public interface BidNotiInfoService {
 
     List<BidNotiInfoDto> getBidNotiInfo(String ins_start_date, String ins_end_date, String subj);
     void postBidInsertInfo(BidNotiInfoDto bidNotiInfoDto);
+    Integer delBidInsertInfo(Integer bltn_content_no);
 }
