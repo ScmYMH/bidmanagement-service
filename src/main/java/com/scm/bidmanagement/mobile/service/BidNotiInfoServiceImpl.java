@@ -24,7 +24,7 @@ public class BidNotiInfoServiceImpl implements BidNotiInfoService{
     }
 
     @Override
-    public void postBidInsertInfo(BidNotiInfoDto bidNotiInfoDto) {
+    public Integer postBidInsertInfo(BidNotiInfoDto bidNotiInfoDto) {
 
         Date today = new Date();
 
@@ -34,9 +34,14 @@ public class BidNotiInfoServiceImpl implements BidNotiInfoService{
         bidNotiInfoDto.setIns_time(new SimpleDateFormat("HHmmss").format(today));
         bidNotiInfoDto.setDw_mail_send_f("N");
 
+
         bidNotiInfoMapper.postBidInsertInfo(bidNotiInfoDto);
 
-        return;
+        Integer a = bidNotiInfoDto.getBltn_content_no();
+
+        log.info("a = " +  a);
+
+        return a;
     }
 
     @Override
@@ -53,6 +58,7 @@ public class BidNotiInfoServiceImpl implements BidNotiInfoService{
         bidNotiInfoDto.setUpd_person_id("20130624000004");
 
          bidNotiInfoMapper.delBidInsertInfo(bidNotiInfoDto);
+
          return 0;
     }
 }

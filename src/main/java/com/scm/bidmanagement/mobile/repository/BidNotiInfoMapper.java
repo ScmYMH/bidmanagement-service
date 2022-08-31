@@ -9,6 +9,6 @@ import java.util.List;
 public interface BidNotiInfoMapper {
 
     List<BidNotiInfoDto> getBidNotiInfo(String ins_start_date, String ins_end_date, String subj);
-    void postBidInsertInfo(BidNotiInfoDto bidNotiInfoDto);
+    Integer postBidInsertInfo(BidNotiInfoDto bidNotiInfoDto);
     Integer delBidInsertInfo(BidNotiInfoDto bidNotiInfoDto);
 }

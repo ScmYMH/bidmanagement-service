@@ -4,7 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.scm.bidmanagement.mobile.repository.BidNotiInfoMapper">
-    <insert id="postBidInsertInfo" parameterType="BidNotiInfoDto">
+    <insert id="postBidInsertInfo" parameterType="BidNotiInfoDto" useGeneratedKeys="true" keyProperty="bltn_content_no">
+
         insert into tebs.tb_bid_noti_info
         (subj, bltn_content, del_yn, ins_person_id,
         ins_date, ins_time, dw_mail_send_f, lsp_grp_cd)
@@ -13,5 +14,6 @@
         #{ins_date}, #{ins_time}, #{dw_mail_send_f},
         (select p.lsp_grp_cd from tebs.tb_lsp_pool_info as p where p.lsp_grp_nm=#{lsp_grp_nm} limit 1)
         )
+
     </insert>
 </mapper>
