@@ -53,7 +53,6 @@ public class BidNotiInfoServiceImpl implements BidNotiInfoService{
         bidNotiInfoDto.setUpd_person_id("20130624000004");
 
          bidNotiInfoMapper.delBidInsertInfo(bidNotiInfoDto);
-
          return 0;
     }
 }
