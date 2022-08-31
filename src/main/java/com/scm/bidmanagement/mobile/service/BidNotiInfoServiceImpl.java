@@ -23,7 +23,7 @@ public class BidNotiInfoServiceImpl implements BidNotiInfoService{
         return bidNotiInfoMapper.getBidNotiInfo(ins_start_date,ins_end_date,subj);
     }
 
-    public List<BidNotiInfoDto> postBidInsertInfo(BidNotiInfoDto bidNotiInfoDto) {
+    public void postBidInsertInfo(BidNotiInfoDto bidNotiInfoDto) {
 
         Date today = new Date();
 
@@ -33,6 +33,8 @@ public class BidNotiInfoServiceImpl implements BidNotiInfoService{
         bidNotiInfoDto.setIns_time(new SimpleDateFormat("HHmmss").format(today));
         bidNotiInfoDto.setDw_mail_send_f("N");
 
-        return bidNotiInfoMapper.postBidInsertInfo(bidNotiInfoDto);
+        bidNotiInfoMapper.postBidInsertInfo(bidNotiInfoDto);
+
+        return;
     }
 }

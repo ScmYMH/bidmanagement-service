@@ -23,8 +23,9 @@ public class BidNotiInfoController {
     }
 
     @PostMapping("")
-    public List<BidNotiInfoDto> postBidInsertInfo(@RequestBody BidNotiInfoDto bidNotiInfoDto) {
-        return bidNotiInfoService.postBidInsertInfo(bidNotiInfoDto);
+    public void postBidInsertInfo(@RequestBody BidNotiInfoDto bidNotiInfoDto) {
+        bidNotiInfoService.postBidInsertInfo(bidNotiInfoDto);
+        return;
     }
 
 }

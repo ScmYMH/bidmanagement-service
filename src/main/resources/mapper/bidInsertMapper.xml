@@ -11,8 +11,7 @@
         values
         (#{subj}, #{bltn_content}, #{del_yn}, #{ins_person_id},
         #{ins_date}, #{ins_time}, #{dw_mail_send_f},
-        (select p.lsp_grp_cd from tebs.tb_lsp_pool_info as p where p.lsp_grp_cd='(PD) Spot 해송-Japan')
+        (select p.lsp_grp_cd from tebs.tb_lsp_pool_info as p where p.lsp_grp_nm=#{lsp_grp_nm} limit 1)
         )
-
     </insert>
 </mapper>
