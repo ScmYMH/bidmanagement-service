@@ -10,5 +10,6 @@
         <mapper resource="mapper/bidNotiInfoMapper.xml"></mapper>
         <mapper resource="mapper/bidInsertMapper.xml"></mapper>
         <mapper resource="mapper/bidDeleteMapper.xml"></mapper>
+        <mapper resource="mapper/bidUpdateMapper.xml"></mapper>
     </mappers>
 </configuration>

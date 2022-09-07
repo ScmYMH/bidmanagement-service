@@ -11,4 +11,6 @@ public interface BidNotiInfoMapper {
     List<BidNotiInfoDto> getBidNotiInfo(String ins_start_date, String ins_end_date, String subj);
     Integer postBidInsertInfo(BidNotiInfoDto bidNotiInfoDto);
     Integer delBidInsertInfo(BidNotiInfoDto bidNotiInfoDto);
+    List<BidNotiInfoDto> getDetailNotiInfo(Integer bltn_content_no);
+    Integer updateNotiInfo(BidNotiInfoDto bidNotiInfoDto);
 }

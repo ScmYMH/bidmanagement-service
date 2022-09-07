@@ -23,9 +23,7 @@ public class BidNotiInfoController {
 
     @PostMapping("")
     public Integer postBidInsertInfo(@RequestBody BidNotiInfoDto bidNotiInfoDto) {
-        bidNotiInfoService.postBidInsertInfo(bidNotiInfoDto);
-        return bidNotiInfoDto.getBltn_content_no();
-
+        return bidNotiInfoService.postBidInsertInfo(bidNotiInfoDto);
     }
 
     @PutMapping("/{bltn_content_no}")
@@ -33,6 +31,16 @@ public class BidNotiInfoController {
 
         return bidNotiInfoService.delBidInsertInfo(bltn_content_no);
 
+    }
+
+    @GetMapping("/detail/{bltn_content_no}")
+    public List<BidNotiInfoDto> getDetailNotiInfo(@PathVariable Integer bltn_content_no) {
+        return bidNotiInfoService.getDetailNotiInfo(bltn_content_no);
+    }
+
+    @PutMapping("")
+    public Integer updateNotiInfo(@RequestBody BidNotiInfoDto bidNotiInfoDto) {
+        return bidNotiInfoService.updateNotiInfo(bidNotiInfoDto);
     }
 
 }

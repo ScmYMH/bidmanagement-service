@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scm.bidmanagement.mobile.repository.BidNotiInfoMapper">
+    <select id="getDetailNotiInfo" resultType="BidNotiInfoDto">
+        select A.BLTN_CONTENT_NO ,
+        A.BID_PJT_TCD ,
+        A.SUBJ ,
+        A.BLTN_CONTENT ,
+        A.SRCH_CNT ,
+        A.DEL_YN ,
+        A.INS_PERSON_ID ,
+        (SELECT X.USER_NM
+        FROM   tcom.tb_user_info X
+        WHERE  X.DEL_YN = 'N'
+        AND    X.USER_ID = A.INS_PERSON_ID) AS INS_PERSON_NM ,
+        A.INS_DATE ,
+        A.INS_TIME ,
+        A.UPD_PERSON_ID ,
+        A.UPD_DATE ,
+        A.UPD_TIME ,
+        A.LSP_GRP_CD ,
+        A.DW_MAIL_SEND_F
+        FROM   tebs.tb_bid_noti_info as A
+        WHERE  A.DEL_YN = 'N'
+        AND    A.BLTN_CONTENT_NO = #{bltn_content_no};
+    </select>
+    <update id="updateNotiInfo" parameterType="BidNotiInfoDto">
+        update
+        tebs.tb_bid_noti_info
+        set
+        subj = #{subj},
+        bltn_content = #{bltn_content},
+        upd_date = #{upd_date},
+        upd_time = #{upd_time},
+        upd_person_id = #{upd_person_id},
+        lsp_grp_cd = (select p.lsp_grp_cd
+                        from (
+                        select lsp_grp_cd from tebs.tb_lsp_pool_info
+                        where lsp_grp_nm = #{lsp_grp_nm} limit 1
+                        ) p
+                    )
+        where bltn_content_no = #{bltn_content_no};
+    </update>
+</mapper>

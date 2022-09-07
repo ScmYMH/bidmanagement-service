@@ -61,4 +61,23 @@ public class BidNotiInfoServiceImpl implements BidNotiInfoService{
 
          return 0;
     }
+
+    @Override
+    public List<BidNotiInfoDto> getDetailNotiInfo(Integer bltn_content_no) {
+        return bidNotiInfoMapper.getDetailNotiInfo(bltn_content_no);
+    }
+
+    @Override
+    public Integer updateNotiInfo(BidNotiInfoDto bidNotiInfoDto) {
+
+        Date today = new Date();
+
+        bidNotiInfoDto.setUpd_date(new SimpleDateFormat("yyyyMMdd").format(today));
+        bidNotiInfoDto.setUpd_time(new SimpleDateFormat("HHmmss").format(today));
+        bidNotiInfoDto.setUpd_person_id("20130624000004");
+
+        return bidNotiInfoMapper.updateNotiInfo(bidNotiInfoDto);
+    }
+
+
 }
