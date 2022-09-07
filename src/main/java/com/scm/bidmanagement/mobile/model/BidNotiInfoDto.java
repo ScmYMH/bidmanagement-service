@@ -23,6 +23,7 @@ public class BidNotiInfoDto {
     private String upd_person_id;
     private String upd_date;
     private String upd_time;
+    private String email;
 
 
 

@@ -2,8 +2,12 @@ package com.scm.bidmanagement.mobile.service;
 
 import com.scm.bidmanagement.mobile.model.BidNotiInfoDto;
 import com.scm.bidmanagement.mobile.repository.BidNotiInfoMapper;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -11,11 +15,13 @@ import java.util.Date;
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 @Slf4j
 public class BidNotiInfoServiceImpl implements BidNotiInfoService{
 
     @Autowired
     BidNotiInfoMapper bidNotiInfoMapper;
+
 
     @Override
     public List<BidNotiInfoDto> getBidNotiInfo(String ins_start_date, String ins_end_date, String subj) {
@@ -78,6 +84,8 @@ public class BidNotiInfoServiceImpl implements BidNotiInfoService{
 
         return bidNotiInfoMapper.updateNotiInfo(bidNotiInfoDto);
     }
+
+
 
 
 }

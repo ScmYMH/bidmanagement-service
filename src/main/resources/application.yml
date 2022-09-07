@@ -15,6 +15,23 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    port: 587
+    username: hyejahong218@gmail.com
+    password: ropicekornccnyjp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+    protocol: smtp
 
 mybatis:
   config-location: classpath:config/myBatis.xml
+
+
+
