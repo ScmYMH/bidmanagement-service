@@ -9,4 +9,5 @@ import java.util.List;
 public interface MailInfoMapper {
 
     List<MailDto> getMailInfo(MailDto mailDto);
+    Integer updByMail(MailDto mailDto);
 }

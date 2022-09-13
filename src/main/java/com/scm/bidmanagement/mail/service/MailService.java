@@ -9,4 +9,5 @@ public interface MailService {
     void sendMail(MailDto mail);
 
     List<MailDto> getMailInfo(MailDto mailDto);
+    Integer updByMail(MailDto mailDto);
 }

@@ -7,4 +7,9 @@
     <select id="getMailInfo" resultType="MailDto">
         select email from tebs.tb_lsp_pool_info where lsp_grp_cd = #{lsp_grp_cd};
     </select>
+    <update id="updByMail">
+        UPDATE tebs.tb_bid_noti_info
+        SET  dw_mail_send_f='Y', email_send_date = current_date
+        where bltn_content_no = #{bltn_content_no}
+    </update>
 </mapper>

@@ -24,24 +24,13 @@ public class MailController {
 
     @PostMapping("/send")
     public void sendMail(@RequestBody MailDto mailDto) {
-        //mailDto.setEmail("hyejahong218@gmail.com");
         List<MailDto> iiiii = mailService.getMailInfo(mailDto);
+        mailService.updByMail(mailDto);
         log.info("iiiii >>> " + iiiii);
         for(int i = 0; i < iiiii.size(); i++) {
             mailDto.setEmail(iiiii.get(i).getEmail());
             mailService.sendMail((mailDto));
         }
-        //mailService.sendMail(mailDto);
     }
 
-//    @PostMapping("/send")
-//    public void sendMail(@RequestBody MailDto mailDto) {
-//        List<MailDto> iiiii = mailService.getMailInfo();
-//        log.info("iiiii >>> " + iiiii);
-//        for(int i=0;i<iiiii.size();i++){
-//            mailDto.setEmail(iiiii.get(i).getEmail());
-//            mailService.sendMail(mailDto);
-//        }
-//
-//    }
 }

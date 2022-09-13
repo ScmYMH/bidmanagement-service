@@ -40,4 +40,8 @@ public class MailServiceImpl implements MailService{
     public List<MailDto> getMailInfo(MailDto mailDto) {
          return mailInfoMapper.getMailInfo(mailDto);
     }
+
+    public Integer updByMail(MailDto mailDto) {
+        return mailInfoMapper.updByMail(mailDto);
+    }
 }
