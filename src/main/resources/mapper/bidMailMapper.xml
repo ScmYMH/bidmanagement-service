@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scm.bidmanagement.mail.repository.MailInfoMapper">
+    <select id="getMailInfo" resultType="MailDto">
+        select email from tebs.tb_lsp_pool_info where lsp_grp_cd = #{lsp_grp_cd};
+    </select>
+</mapper>

@@ -10,5 +10,6 @@ public class MailDto {
     private String email;
     private String bltn_content;
     private String subj;
+    private String lsp_grp_cd;
 
 }

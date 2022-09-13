@@ -5,11 +5,13 @@
 <configuration>
     <typeAliases>
         <package name="com.scm.bidmanagement.mobile.model" />
+        <package name="com.scm.bidmanagement.mail.model"/>
     </typeAliases>
     <mappers>
         <mapper resource="mapper/bidNotiInfoMapper.xml"></mapper>
         <mapper resource="mapper/bidInsertMapper.xml"></mapper>
         <mapper resource="mapper/bidDeleteMapper.xml"></mapper>
         <mapper resource="mapper/bidUpdateMapper.xml"></mapper>
+        <mapper resource="mapper/bidMailMapper.xml"></mapper>
     </mappers>
 </configuration>
