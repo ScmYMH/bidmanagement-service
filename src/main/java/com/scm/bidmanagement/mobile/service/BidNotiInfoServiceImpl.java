@@ -1,6 +1,7 @@
 package com.scm.bidmanagement.mobile.service;
 
 import com.scm.bidmanagement.mobile.model.BidNotiInfoDto;
+import com.scm.bidmanagement.mobile.model.LspNmDto;
 import com.scm.bidmanagement.mobile.repository.BidNotiInfoMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -89,6 +90,13 @@ public class BidNotiInfoServiceImpl implements BidNotiInfoService{
     }
 
 
+    @Override
+    public  List<LspNmDto> getLspGrpNm() {
+
+        log.info("bidNotiInfoMapper.getLspGrpNm()" + bidNotiInfoMapper.getLspGrpNm());
+
+        return bidNotiInfoMapper.getLspGrpNm();
+    }
 
 
 }

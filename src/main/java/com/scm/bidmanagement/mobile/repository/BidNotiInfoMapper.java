@@ -1,6 +1,7 @@
 package com.scm.bidmanagement.mobile.repository;
 
 import com.scm.bidmanagement.mobile.model.BidNotiInfoDto;
+import com.scm.bidmanagement.mobile.model.LspNmDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -13,4 +14,6 @@ public interface BidNotiInfoMapper {
     Integer delBidInsertInfo(BidNotiInfoDto bidNotiInfoDto);
     List<BidNotiInfoDto> getDetailNotiInfo(Integer bltn_content_no);
     Integer updateNotiInfo(BidNotiInfoDto bidNotiInfoDto);
+
+    List<LspNmDto> getLspGrpNm();
 }

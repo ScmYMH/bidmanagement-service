@@ -22,6 +22,8 @@
         A.UPD_DATE ,
         A.UPD_TIME ,
         A.LSP_GRP_CD ,
+        (select L.lsp_grp_nm from TEBS.tb_lsp_pool_info L
+        where L.lsp_grp_cd =  A.lsp_grp_cd limit 1) as LSP_GRP_NM,
         A.DW_MAIL_SEND_F
         FROM   tebs.tb_bid_noti_info as A
         WHERE  A.DEL_YN = 'N'

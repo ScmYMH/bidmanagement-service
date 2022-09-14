@@ -1,6 +1,7 @@
 package com.scm.bidmanagement.mobile.controller;
 
 import com.scm.bidmanagement.mobile.model.BidNotiInfoDto;
+import com.scm.bidmanagement.mobile.model.LspNmDto;
 import com.scm.bidmanagement.mobile.service.BidNotiInfoServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,11 @@ public class BidNotiInfoController {
     @PutMapping("")
     public Integer updateNotiInfo(@RequestBody BidNotiInfoDto bidNotiInfoDto) {
         return bidNotiInfoService.updateNotiInfo(bidNotiInfoDto);
+    }
+
+    @GetMapping("/lspNm")
+    public  List<LspNmDto> getLspGrpNm() {
+        return bidNotiInfoService.getLspGrpNm();
     }
 
 }

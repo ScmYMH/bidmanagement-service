@@ -2,6 +2,7 @@ package com.scm.bidmanagement.mobile.service;
 
 
 import com.scm.bidmanagement.mobile.model.BidNotiInfoDto;
+import com.scm.bidmanagement.mobile.model.LspNmDto;
 
 import java.util.List;
 
@@ -12,4 +13,5 @@ public interface BidNotiInfoService {
     Integer delBidInsertInfo(Integer bltn_content_no);
     List<BidNotiInfoDto> getDetailNotiInfo(Integer bltn_content_no);
     Integer updateNotiInfo(BidNotiInfoDto bidNotiInfoDto);
+    List<LspNmDto> getLspGrpNm();
 }

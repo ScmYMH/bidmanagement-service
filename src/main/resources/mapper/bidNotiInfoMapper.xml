@@ -22,11 +22,8 @@
         A.UPD_DATE ,
         A.UPD_TIME ,
         A.LSP_GRP_CD,
-        (select L.LSP_GRP_NM
-        from TEBS.tb_lsp_pool_info L
-        WHERE  L.DEL_YN = 'N'
-        AND L.lsp_grp_cd =  A.lsp_grp_cd
-        and L.lsp_grp_cd is distinct from A.lsp_grp_cd) AS LSP_GRP_NM,
+        (select L.lsp_grp_nm from TEBS.tb_lsp_pool_info L
+        where L.lsp_grp_cd =  A.lsp_grp_cd limit 1) as LSP_GRP_NM,
         COALESCE(A.DW_MAIL_SEND_F , 'N') DW_MAIL_SEND_F,
         A.LSP_GRP_CD
         FROM   TEBS.TB_BID_NOTI_INFO A
@@ -34,5 +31,10 @@
         AND    A.INS_DATE <![CDATA[>=]]> #{ins_start_date}
         AND    A.INS_DATE <![CDATA[<=]]> #{ins_end_date}
         AND    A.SUBJ LIKE '%'|| REPLACE(REPLACE(#{subj}  , '%' , CHR(1)||'%') , '_' , CHR(1)||'_') || '%' ESCAPE CHR(1)
+    </select>
+    <select id="getLspGrpNm" resultType="LspNmDto">
+        select distinct L.lsp_grp_nm from TEBS.TB_BID_NOTI_INFO as A
+        inner join TEBS.tb_lsp_pool_info L
+        on L.lsp_grp_cd =  A.lsp_grp_cd;
     </select>
 </mapper>
