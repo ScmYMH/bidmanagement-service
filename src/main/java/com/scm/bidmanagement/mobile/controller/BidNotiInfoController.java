@@ -22,7 +22,7 @@ public class BidNotiInfoController {
     }
 
     @PostMapping("")
-    public Integer postBidInsertInfo(@RequestBody BidNotiInfoDto bidNotiInfoDto) {
+    public BidNotiInfoDto postBidInsertInfo(@RequestBody BidNotiInfoDto bidNotiInfoDto) {
         return bidNotiInfoService.postBidInsertInfo(bidNotiInfoDto);
     }
 

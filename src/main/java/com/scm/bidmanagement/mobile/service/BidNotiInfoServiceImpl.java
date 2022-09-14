@@ -30,7 +30,7 @@ public class BidNotiInfoServiceImpl implements BidNotiInfoService{
     }
 
     @Override
-    public Integer postBidInsertInfo(BidNotiInfoDto bidNotiInfoDto) {
+    public BidNotiInfoDto postBidInsertInfo(BidNotiInfoDto bidNotiInfoDto) {
 
         Date today = new Date();
 
@@ -45,9 +45,12 @@ public class BidNotiInfoServiceImpl implements BidNotiInfoService{
 
         Integer a = bidNotiInfoDto.getBltn_content_no();
 
+
+        log.info("list >> " + bidNotiInfoDto);
+
         log.info("a = " +  a);
 
-        return a;
+        return bidNotiInfoDto;
     }
 
     @Override

@@ -11,6 +11,7 @@ public class MailDto {
     private String bltn_content;
     private String subj;
     private String lsp_grp_cd;
+    private String lsp_grp_nm;
     private Integer bltn_content_no;
 
 }

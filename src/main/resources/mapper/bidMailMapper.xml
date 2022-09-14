@@ -5,7 +5,7 @@
 
 <mapper namespace="com.scm.bidmanagement.mail.repository.MailInfoMapper">
     <select id="getMailInfo" resultType="MailDto">
-        select email from tebs.tb_lsp_pool_info where lsp_grp_cd = #{lsp_grp_cd};
+        select email from tebs.tb_lsp_pool_info where lsp_grp_nm = #{lsp_grp_nm};
     </select>
     <update id="updByMail">
         UPDATE tebs.tb_bid_noti_info
