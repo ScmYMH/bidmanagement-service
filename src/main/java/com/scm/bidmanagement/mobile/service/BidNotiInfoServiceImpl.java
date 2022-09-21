@@ -36,10 +36,11 @@ public class BidNotiInfoServiceImpl implements BidNotiInfoService{
         Date today = new Date();
 
         bidNotiInfoDto.setDel_yn("N");
-        bidNotiInfoDto.setIns_person_id("20130222000003");
+        bidNotiInfoDto.setIns_person_id("202207130003");
         bidNotiInfoDto.setIns_date(new SimpleDateFormat("yyyyMMdd").format(today));
         bidNotiInfoDto.setIns_time(new SimpleDateFormat("HHmmss").format(today));
         bidNotiInfoDto.setDw_mail_send_f("N");
+        bidNotiInfoDto.setIns_person_nm(bidNotiInfoDto.getIns_person_nm());
 
 
         bidNotiInfoMapper.postBidInsertInfo(bidNotiInfoDto);
@@ -84,7 +85,7 @@ public class BidNotiInfoServiceImpl implements BidNotiInfoService{
 
         bidNotiInfoDto.setUpd_date(new SimpleDateFormat("yyyyMMdd").format(today));
         bidNotiInfoDto.setUpd_time(new SimpleDateFormat("HHmmss").format(today));
-        bidNotiInfoDto.setUpd_person_id("20130624000004");
+        bidNotiInfoDto.setUpd_person_id("202207130003");
 
         return bidNotiInfoMapper.updateNotiInfo(bidNotiInfoDto);
     }
