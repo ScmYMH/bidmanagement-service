@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scm.bidmanagement.mobile.repository.BidNotiInfoMapper">
+   <update id="delBidInsertInfo" parameterType="BidNotiInfoDto">
+       update tebs.tb_bid_noti_info
+       set upd_date = #{upd_date}, upd_time = #{upd_time}, upd_person_id =#{upd_person_id}, del_yn = #{del_yn}
+       where bltn_content_no = #{bltn_content_no}
+   </update>
+</mapper>
+
