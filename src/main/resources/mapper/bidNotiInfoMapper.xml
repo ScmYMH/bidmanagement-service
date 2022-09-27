@@ -31,6 +31,7 @@
         AND    A.INS_DATE <![CDATA[>=]]> #{ins_start_date}
         AND    A.INS_DATE <![CDATA[<=]]> #{ins_end_date}
         AND    A.SUBJ LIKE '%'|| REPLACE(REPLACE(#{subj}  , '%' , CHR(1)||'%') , '_' , CHR(1)||'_') || '%' ESCAPE CHR(1)
+        order by A.INS_DATE desc, A.INS_TIME desc
     </select>
     <select id="getLspGrpNm" resultType="LspNmDto">
         select distinct L.lsp_grp_nm from TEBS.TB_BID_NOTI_INFO as A
